@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
+	"github.com/xV0lk/cli-test/db"
 )
 
 var addCmd = &cobra.Command{
@@ -12,6 +13,7 @@ var addCmd = &cobra.Command{
 	Short: "Adds a task to the task manager",
 	Run: func(cmd *cobra.Command, args []string) {
 		task := strings.Join(args, " ")
+		db.CreateTask(task)
 		fmt.Printf("Added \"%s\" to your tasks\n", task)
 	},
 }
